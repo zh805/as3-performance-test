@@ -1,0 +1,87 @@
+---
+
+# for n in {1..50}; do ansible-playbook testing.yaml -e index=0 -e count=$n; done
+
+- hosts: localhost
+  gather_facts: false
+  remote_user: root
+  tasks:
+    - set_fact:
+        tests: ['1', '1+1', 'n', 'n+1', 'n_1', 'n-1']
+
+    - name: generate resource json
+      template:
+        src: ./templates/test-{{ item }}.json.j2
+        dest: ./tests/test-{{ item }}.json
+      with_items: "{{ tests }}"
+
+#######################
+    # - name: deploy as3 to bigip and record the delta time
+    #   shell: |
+    #     set -e
+    #     ./rest-program/f5-tool-parse-as3 --config rest-program/config.json --input {{ item.file }} --output {{ item.file }}-rest.json
+    #     ./rest-program/f5-tool-deploy-rest --config rest-program/config.json --original empty.rest.json --target {{ item.file }}-rest.json
+    #   register: result
+    #   loop_control:
+    #       label: "{{ item.msg }}| costs:{{ result.delta | default('0:00:00.000') }}"
+    #   with_items:
+    #     - {"file": "tests/test-1.json", "msg": "deploy with {{ count }} apps in one tenant"}
+    #     - {"file": "tests/test-1+1.json", "msg": "append one more app to the tenant"}
+    #     - {"file": "tests/test-1.json", "msg": "remove one app from the tenant"}
+
+    # - name: delete resources from bigip and record the delta time
+    #   shell: |
+    #     set -e
+    #     ./rest-program/f5-tool-deploy-rest --config rest-program/config.json --original tests/test-1+1.json-rest.json --target empty.rest.json
+    #   register: result
+    #   loop_control:
+    #       label: "{{ item.msg }}| costs:{{ result.delta | default('0:00:00.000') }}"
+    #   with_items:
+    #     - {"file": "", "msg": "delete the tenant with {{ count }} apps"}
+
+#######################
+    # - name: deploy as3 to bigip and record the delta time
+    #   shell: |
+    #     set -e
+    #     ./rest-program/f5-tool-parse-as3 --config rest-program/config.json --input {{ item.file }} --output {{ item.file }}-rest.json
+    #     ./rest-program/f5-tool-deploy-rest --config rest-program/config.json --original empty.rest.json --target {{ item.file }}-rest.json
+    #   register: result
+    #   loop_control:
+    #       label: "{{ item.msg }}| costs:{{ result.delta | default('0:00:00.000') }}"
+    #   with_items:
+    #     - {"file": "tests/test-n.json", "msg": "deploy with {{ count }} tenants"}
+    #     - {"file": "tests/test-n+1.json", "msg": "append one more tenant"}
+    #     - {"file": "tests/test-n-1.json", "msg": "remove one tenant"}
+    #     - {"file": "tests/test-n_1.json", "msg": "add one separate tenant"}
+
+    # - name: delete resources from bigip and record the delta time
+    #   shell: |
+    #     set -e
+    #     ./rest-program/f5-tool-deploy-rest --config rest-program/config.json --original tests/test-n+1.json-rest.json --target empty.rest.json
+    #   register: result
+    #   loop_control:
+    #       label: "{{ item.msg }}| costs:{{ result.delta | default('0:00:00.000') }}"
+    #   with_items:
+    #     - {"file": "", "msg": "delete the tenant with {{ count }} apps"}
+
+#######################
+    - name: deploy as3 to bigip and record the delta time
+      shell: |
+        code=`curl -k -u admin:P@ssw0rd123 -X POST \
+          -d @{{ item.file }} -H "Content-Type: application/json" \
+          https://10.250.2.219:443/mgmt/shared/appsvcs/declare 2>/dev/null -s -o /dev/null -w %{http_code}`
+          echo $code
+        if [ $code -ne 200 ]; then exit 1; fi
+      register: result
+      loop_control:
+          label: "{{ item.msg }}| costs:{{ result.delta | default('0:00:00.000') }}"
+      with_items:
+        - {"file": "tests/test-1.json", "msg": "deploy with {{ count }} apps in one tenant"}
+        - {"file": "tests/test-1+1.json", "msg": "append one more app to the tenant"}
+        - {"file": "tests/test-1.json", "msg": "remove one app from the tenant"}
+        - {"file": "empty.json", "msg": "delete the tenant with {{ count }} apps"}
+        - {"file": "tests/test-n.json", "msg": "deploy with {{ count }} tenants"}
+        - {"file": "tests/test-n+1.json", "msg": "append one more tenant"}
+        - {"file": "tests/test-n-1.json", "msg": "remove one tenant"}
+        - {"file": "tests/test-n_1.json", "msg": "add one separate tenant"}
+        - {"file": "empty.json", "msg": "delete {{ count|int + 1 }} tenants"}

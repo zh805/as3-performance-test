@@ -1,0 +1,6 @@
+{
+    "bigip-url": "https://10.250.2.219",
+    "bigip-username": "admin",
+    "bigip-password": "P@ssw0rd123",
+    "log-level": "info"
+}

@@ -1,0 +1,754 @@
+(ansible) [zong@BEI-ML-00005389 as3-performance-test]$ for n in {1..20}; do ansible-playbook testing.yaml -e index=0 -e count=$n; done
+[WARNING]: No inventory was parsed, only implicit localhost is available
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+PLAY [localhost] ********************************************************************************************************************************************
+
+TASK [set_fact] *********************************************************************************************************************************************
+ok: [localhost]
+
+TASK [generate resource json] *******************************************************************************************************************************
+changed: [localhost] => (item=1)
+changed: [localhost] => (item=1+1)
+changed: [localhost] => (item=n)
+changed: [localhost] => (item=n+1)
+changed: [localhost] => (item=n_1)
+changed: [localhost] => (item=n-1)
+
+TASK [deploy as3 to bigip and record the delta time] ********************************************************************************************************
+changed: [localhost] => (item=deploy with 1 apps in one tenant| costs:0:00:02.333724)
+changed: [localhost] => (item=append one more app to the tenant| costs:0:00:03.820422)
+changed: [localhost] => (item=remove one app from the tenant| costs:0:00:03.674067)
+changed: [localhost] => (item=delete the tenant with 1 apps| costs:0:00:06.687586)
+changed: [localhost] => (item=deploy with 1 tenants| costs:0:00:02.826229)
+changed: [localhost] => (item=append one more tenant| costs:0:00:04.649458)
+changed: [localhost] => (item=remove one tenant| costs:0:00:03.207461)
+changed: [localhost] => (item=add one separate tenant| costs:0:00:02.502989)
+changed: [localhost] => (item=delete 2 tenants| costs:0:00:07.750129)
+
+PLAY RECAP **************************************************************************************************************************************************
+localhost                  : ok=3    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+[WARNING]: No inventory was parsed, only implicit localhost is available
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+PLAY [localhost] ********************************************************************************************************************************************
+
+TASK [set_fact] *********************************************************************************************************************************************
+ok: [localhost]
+
+TASK [generate resource json] *******************************************************************************************************************************
+changed: [localhost] => (item=1)
+changed: [localhost] => (item=1+1)
+changed: [localhost] => (item=n)
+changed: [localhost] => (item=n+1)
+changed: [localhost] => (item=n_1)
+changed: [localhost] => (item=n-1)
+
+TASK [deploy as3 to bigip and record the delta time] ********************************************************************************************************
+changed: [localhost] => (item=deploy with 2 apps in one tenant| costs:0:00:02.899342)
+changed: [localhost] => (item=append one more app to the tenant| costs:0:00:04.571987)
+changed: [localhost] => (item=remove one app from the tenant| costs:0:00:03.840037)
+changed: [localhost] => (item=delete the tenant with 2 apps| costs:0:00:06.292975)
+changed: [localhost] => (item=deploy with 2 tenants| costs:0:00:03.722483)
+changed: [localhost] => (item=append one more tenant| costs:0:00:06.888875)
+changed: [localhost] => (item=remove one tenant| costs:0:00:02.999132)
+changed: [localhost] => (item=add one separate tenant| costs:0:00:02.788390)
+changed: [localhost] => (item=delete 3 tenants| costs:0:00:09.627987)
+
+PLAY RECAP **************************************************************************************************************************************************
+localhost                  : ok=3    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+[WARNING]: No inventory was parsed, only implicit localhost is available
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+PLAY [localhost] ********************************************************************************************************************************************
+
+TASK [set_fact] *********************************************************************************************************************************************
+ok: [localhost]
+
+TASK [generate resource json] *******************************************************************************************************************************
+changed: [localhost] => (item=1)
+changed: [localhost] => (item=1+1)
+changed: [localhost] => (item=n)
+changed: [localhost] => (item=n+1)
+changed: [localhost] => (item=n_1)
+changed: [localhost] => (item=n-1)
+
+TASK [deploy as3 to bigip and record the delta time] ********************************************************************************************************
+changed: [localhost] => (item=deploy with 3 apps in one tenant| costs:0:00:03.239720)
+changed: [localhost] => (item=append one more app to the tenant| costs:0:00:04.322801)
+changed: [localhost] => (item=remove one app from the tenant| costs:0:00:03.853585)
+changed: [localhost] => (item=delete the tenant with 3 apps| costs:0:00:05.218918)
+changed: [localhost] => (item=deploy with 3 tenants| costs:0:00:04.809854)
+changed: [localhost] => (item=append one more tenant| costs:0:00:08.148796)
+changed: [localhost] => (item=remove one tenant| costs:0:00:03.322788)
+changed: [localhost] => (item=add one separate tenant| costs:0:00:02.804497)
+changed: [localhost] => (item=delete 4 tenants| costs:0:00:09.564708)
+
+PLAY RECAP **************************************************************************************************************************************************
+localhost                  : ok=3    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+[WARNING]: No inventory was parsed, only implicit localhost is available
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+PLAY [localhost] ********************************************************************************************************************************************
+
+TASK [set_fact] *********************************************************************************************************************************************
+ok: [localhost]
+
+TASK [generate resource json] *******************************************************************************************************************************
+changed: [localhost] => (item=1)
+changed: [localhost] => (item=1+1)
+changed: [localhost] => (item=n)
+changed: [localhost] => (item=n+1)
+changed: [localhost] => (item=n_1)
+changed: [localhost] => (item=n-1)
+
+TASK [deploy as3 to bigip and record the delta time] ********************************************************************************************************
+changed: [localhost] => (item=deploy with 4 apps in one tenant| costs:0:00:03.859388)
+changed: [localhost] => (item=append one more app to the tenant| costs:0:00:05.028084)
+changed: [localhost] => (item=remove one app from the tenant| costs:0:00:04.176646)
+changed: [localhost] => (item=delete the tenant with 4 apps| costs:0:00:05.617920)
+changed: [localhost] => (item=deploy with 4 tenants| costs:0:00:05.985558)
+changed: [localhost] => (item=append one more tenant| costs:0:00:10.371219)
+changed: [localhost] => (item=remove one tenant| costs:0:00:03.351873)
+changed: [localhost] => (item=add one separate tenant| costs:0:00:02.386868)
+changed: [localhost] => (item=delete 5 tenants| costs:0:00:10.973916)
+
+PLAY RECAP **************************************************************************************************************************************************
+localhost                  : ok=3    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+[WARNING]: No inventory was parsed, only implicit localhost is available
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+PLAY [localhost] ********************************************************************************************************************************************
+
+TASK [set_fact] *********************************************************************************************************************************************
+ok: [localhost]
+
+TASK [generate resource json] *******************************************************************************************************************************
+changed: [localhost] => (item=1)
+changed: [localhost] => (item=1+1)
+changed: [localhost] => (item=n)
+changed: [localhost] => (item=n+1)
+changed: [localhost] => (item=n_1)
+changed: [localhost] => (item=n-1)
+
+TASK [deploy as3 to bigip and record the delta time] ********************************************************************************************************
+changed: [localhost] => (item=deploy with 5 apps in one tenant| costs:0:00:04.173524)
+changed: [localhost] => (item=append one more app to the tenant| costs:0:00:04.564059)
+changed: [localhost] => (item=remove one app from the tenant| costs:0:00:04.506636)
+changed: [localhost] => (item=delete the tenant with 5 apps| costs:0:00:05.950861)
+changed: [localhost] => (item=deploy with 5 tenants| costs:0:00:06.707024)
+changed: [localhost] => (item=append one more tenant| costs:0:00:11.169157)
+changed: [localhost] => (item=remove one tenant| costs:0:00:03.323784)
+changed: [localhost] => (item=add one separate tenant| costs:0:00:02.546139)
+changed: [localhost] => (item=delete 6 tenants| costs:0:00:12.894674)
+
+PLAY RECAP **************************************************************************************************************************************************
+localhost                  : ok=3    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+[WARNING]: No inventory was parsed, only implicit localhost is available
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+PLAY [localhost] ********************************************************************************************************************************************
+
+TASK [set_fact] *********************************************************************************************************************************************
+ok: [localhost]
+
+TASK [generate resource json] *******************************************************************************************************************************
+changed: [localhost] => (item=1)
+changed: [localhost] => (item=1+1)
+changed: [localhost] => (item=n)
+changed: [localhost] => (item=n+1)
+changed: [localhost] => (item=n_1)
+changed: [localhost] => (item=n-1)
+
+TASK [deploy as3 to bigip and record the delta time] ********************************************************************************************************
+changed: [localhost] => (item=deploy with 6 apps in one tenant| costs:0:00:04.621619)
+changed: [localhost] => (item=append one more app to the tenant| costs:0:00:05.076971)
+changed: [localhost] => (item=remove one app from the tenant| costs:0:00:04.951801)
+changed: [localhost] => (item=delete the tenant with 6 apps| costs:0:00:05.394281)
+changed: [localhost] => (item=deploy with 6 tenants| costs:0:00:08.001685)
+changed: [localhost] => (item=append one more tenant| costs:0:00:13.467831)
+changed: [localhost] => (item=remove one tenant| costs:0:00:02.913328)
+changed: [localhost] => (item=add one separate tenant| costs:0:00:02.898291)
+changed: [localhost] => (item=delete 7 tenants| costs:0:00:14.879462)
+
+PLAY RECAP **************************************************************************************************************************************************
+localhost                  : ok=3    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+[WARNING]: No inventory was parsed, only implicit localhost is available
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+PLAY [localhost] ********************************************************************************************************************************************
+
+TASK [set_fact] *********************************************************************************************************************************************
+ok: [localhost]
+
+TASK [generate resource json] *******************************************************************************************************************************
+changed: [localhost] => (item=1)
+changed: [localhost] => (item=1+1)
+changed: [localhost] => (item=n)
+changed: [localhost] => (item=n+1)
+changed: [localhost] => (item=n_1)
+changed: [localhost] => (item=n-1)
+
+TASK [deploy as3 to bigip and record the delta time] ********************************************************************************************************
+changed: [localhost] => (item=deploy with 7 apps in one tenant| costs:0:00:04.974297)
+changed: [localhost] => (item=append one more app to the tenant| costs:0:00:05.213871)
+changed: [localhost] => (item=remove one app from the tenant| costs:0:00:04.956006)
+changed: [localhost] => (item=delete the tenant with 7 apps| costs:0:00:06.625396)
+changed: [localhost] => (item=deploy with 7 tenants| costs:0:00:10.325799)
+changed: [localhost] => (item=append one more tenant| costs:0:00:14.030177)
+changed: [localhost] => (item=remove one tenant| costs:0:00:02.974604)
+changed: [localhost] => (item=add one separate tenant| costs:0:00:02.968346)
+changed: [localhost] => (item=delete 8 tenants| costs:0:00:15.953769)
+
+PLAY RECAP **************************************************************************************************************************************************
+localhost                  : ok=3    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+[WARNING]: No inventory was parsed, only implicit localhost is available
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+PLAY [localhost] ********************************************************************************************************************************************
+
+TASK [set_fact] *********************************************************************************************************************************************
+ok: [localhost]
+
+TASK [generate resource json] *******************************************************************************************************************************
+changed: [localhost] => (item=1)
+changed: [localhost] => (item=1+1)
+changed: [localhost] => (item=n)
+changed: [localhost] => (item=n+1)
+changed: [localhost] => (item=n_1)
+changed: [localhost] => (item=n-1)
+
+TASK [deploy as3 to bigip and record the delta time] ********************************************************************************************************
+changed: [localhost] => (item=deploy with 8 apps in one tenant| costs:0:00:05.191979)
+changed: [localhost] => (item=append one more app to the tenant| costs:0:00:05.897266)
+changed: [localhost] => (item=remove one app from the tenant| costs:0:00:05.628018)
+changed: [localhost] => (item=delete the tenant with 8 apps| costs:0:00:05.505704)
+changed: [localhost] => (item=deploy with 8 tenants| costs:0:00:10.017959)
+changed: [localhost] => (item=append one more tenant| costs:0:00:15.949626)
+changed: [localhost] => (item=remove one tenant| costs:0:00:03.352310)
+changed: [localhost] => (item=add one separate tenant| costs:0:00:02.591379)
+changed: [localhost] => (item=delete 9 tenants| costs:0:00:17.497635)
+
+PLAY RECAP **************************************************************************************************************************************************
+localhost                  : ok=3    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+[WARNING]: No inventory was parsed, only implicit localhost is available
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+PLAY [localhost] ********************************************************************************************************************************************
+
+TASK [set_fact] *********************************************************************************************************************************************
+ok: [localhost]
+
+TASK [generate resource json] *******************************************************************************************************************************
+changed: [localhost] => (item=1)
+changed: [localhost] => (item=1+1)
+changed: [localhost] => (item=n)
+changed: [localhost] => (item=n+1)
+changed: [localhost] => (item=n_1)
+changed: [localhost] => (item=n-1)
+
+TASK [deploy as3 to bigip and record the delta time] ********************************************************************************************************
+changed: [localhost] => (item=deploy with 9 apps in one tenant| costs:0:00:05.697947)
+changed: [localhost] => (item=append one more app to the tenant| costs:0:00:05.568635)
+changed: [localhost] => (item=remove one app from the tenant| costs:0:00:05.411289)
+changed: [localhost] => (item=delete the tenant with 9 apps| costs:0:00:06.418032)
+changed: [localhost] => (item=deploy with 9 tenants| costs:0:00:10.814119)
+changed: [localhost] => (item=append one more tenant| costs:0:00:18.452228)
+changed: [localhost] => (item=remove one tenant| costs:0:00:03.203079)
+changed: [localhost] => (item=add one separate tenant| costs:0:00:02.846679)
+changed: [localhost] => (item=delete 10 tenants| costs:0:00:19.130026)
+
+PLAY RECAP **************************************************************************************************************************************************
+localhost                  : ok=3    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+[WARNING]: No inventory was parsed, only implicit localhost is available
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+PLAY [localhost] ********************************************************************************************************************************************
+
+TASK [set_fact] *********************************************************************************************************************************************
+ok: [localhost]
+
+TASK [generate resource json] *******************************************************************************************************************************
+changed: [localhost] => (item=1)
+changed: [localhost] => (item=1+1)
+changed: [localhost] => (item=n)
+changed: [localhost] => (item=n+1)
+changed: [localhost] => (item=n_1)
+changed: [localhost] => (item=n-1)
+
+TASK [deploy as3 to bigip and record the delta time] ********************************************************************************************************
+changed: [localhost] => (item=deploy with 10 apps in one tenant| costs:0:00:05.977791)
+changed: [localhost] => (item=append one more app to the tenant| costs:0:00:06.286100)
+changed: [localhost] => (item=remove one app from the tenant| costs:0:00:05.481630)
+changed: [localhost] => (item=delete the tenant with 10 apps| costs:0:00:06.238593)
+changed: [localhost] => (item=deploy with 10 tenants| costs:0:00:11.653113)
+changed: [localhost] => (item=append one more tenant| costs:0:00:20.157808)
+changed: [localhost] => (item=remove one tenant| costs:0:00:02.777585)
+changed: [localhost] => (item=add one separate tenant| costs:0:00:02.910004)
+changed: [localhost] => (item=delete 11 tenants| costs:0:00:20.615961)
+
+PLAY RECAP **************************************************************************************************************************************************
+localhost                  : ok=3    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+[WARNING]: No inventory was parsed, only implicit localhost is available
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+PLAY [localhost] ********************************************************************************************************************************************
+
+TASK [set_fact] *********************************************************************************************************************************************
+ok: [localhost]
+
+TASK [generate resource json] *******************************************************************************************************************************
+changed: [localhost] => (item=1)
+changed: [localhost] => (item=1+1)
+changed: [localhost] => (item=n)
+changed: [localhost] => (item=n+1)
+changed: [localhost] => (item=n_1)
+changed: [localhost] => (item=n-1)
+
+TASK [deploy as3 to bigip and record the delta time] ********************************************************************************************************
+changed: [localhost] => (item=deploy with 11 apps in one tenant| costs:0:00:05.752803)
+changed: [localhost] => (item=append one more app to the tenant| costs:0:00:06.420989)
+changed: [localhost] => (item=remove one app from the tenant| costs:0:00:06.306172)
+changed: [localhost] => (item=delete the tenant with 11 apps| costs:0:00:06.766712)
+changed: [localhost] => (item=deploy with 11 tenants| costs:0:00:12.582779)
+changed: [localhost] => (item=append one more tenant| costs:0:00:21.136182)
+changed: [localhost] => (item=remove one tenant| costs:0:00:03.577705)
+changed: [localhost] => (item=add one separate tenant| costs:0:00:02.813518)
+changed: [localhost] => (item=delete 12 tenants| costs:0:00:21.880576)
+
+PLAY RECAP **************************************************************************************************************************************************
+localhost                  : ok=3    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+[WARNING]: No inventory was parsed, only implicit localhost is available
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+PLAY [localhost] ********************************************************************************************************************************************
+
+TASK [set_fact] *********************************************************************************************************************************************
+ok: [localhost]
+
+TASK [generate resource json] *******************************************************************************************************************************
+changed: [localhost] => (item=1)
+changed: [localhost] => (item=1+1)
+changed: [localhost] => (item=n)
+changed: [localhost] => (item=n+1)
+changed: [localhost] => (item=n_1)
+changed: [localhost] => (item=n-1)
+
+TASK [deploy as3 to bigip and record the delta time] ********************************************************************************************************
+changed: [localhost] => (item=deploy with 12 apps in one tenant| costs:0:00:06.443157)
+changed: [localhost] => (item=append one more app to the tenant| costs:0:00:06.671630)
+changed: [localhost] => (item=remove one app from the tenant| costs:0:00:06.623880)
+changed: [localhost] => (item=delete the tenant with 12 apps| costs:0:00:07.220740)
+changed: [localhost] => (item=deploy with 12 tenants| costs:0:00:13.914578)
+changed: [localhost] => (item=append one more tenant| costs:0:00:23.654488)
+changed: [localhost] => (item=remove one tenant| costs:0:00:02.974149)
+changed: [localhost] => (item=add one separate tenant| costs:0:00:02.978518)
+changed: [localhost] => (item=delete 13 tenants| costs:0:00:22.962947)
+
+PLAY RECAP **************************************************************************************************************************************************
+localhost                  : ok=3    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+[WARNING]: No inventory was parsed, only implicit localhost is available
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+PLAY [localhost] ********************************************************************************************************************************************
+
+TASK [set_fact] *********************************************************************************************************************************************
+ok: [localhost]
+
+TASK [generate resource json] *******************************************************************************************************************************
+changed: [localhost] => (item=1)
+changed: [localhost] => (item=1+1)
+changed: [localhost] => (item=n)
+changed: [localhost] => (item=n+1)
+changed: [localhost] => (item=n_1)
+changed: [localhost] => (item=n-1)
+
+TASK [deploy as3 to bigip and record the delta time] ********************************************************************************************************
+changed: [localhost] => (item=deploy with 13 apps in one tenant| costs:0:00:06.798389)
+changed: [localhost] => (item=append one more app to the tenant| costs:0:00:06.934807)
+changed: [localhost] => (item=remove one app from the tenant| costs:0:00:06.393502)
+changed: [localhost] => (item=delete the tenant with 13 apps| costs:0:00:06.011533)
+changed: [localhost] => (item=deploy with 13 tenants| costs:0:00:14.998248)
+changed: [localhost] => (item=append one more tenant| costs:0:00:25.299550)
+changed: [localhost] => (item=remove one tenant| costs:0:00:03.545535)
+changed: [localhost] => (item=add one separate tenant| costs:0:00:02.852695)
+changed: [localhost] => (item=delete 14 tenants| costs:0:00:25.718453)
+
+PLAY RECAP **************************************************************************************************************************************************
+localhost                  : ok=3    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+[WARNING]: No inventory was parsed, only implicit localhost is available
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+PLAY [localhost] ********************************************************************************************************************************************
+
+TASK [set_fact] *********************************************************************************************************************************************
+ok: [localhost]
+
+TASK [generate resource json] *******************************************************************************************************************************
+changed: [localhost] => (item=1)
+changed: [localhost] => (item=1+1)
+changed: [localhost] => (item=n)
+changed: [localhost] => (item=n+1)
+changed: [localhost] => (item=n_1)
+changed: [localhost] => (item=n-1)
+
+TASK [deploy as3 to bigip and record the delta time] ********************************************************************************************************
+changed: [localhost] => (item=deploy with 14 apps in one tenant| costs:0:00:07.451782)
+changed: [localhost] => (item=append one more app to the tenant| costs:0:00:07.693224)
+changed: [localhost] => (item=remove one app from the tenant| costs:0:00:06.750904)
+changed: [localhost] => (item=delete the tenant with 14 apps| costs:0:00:06.561730)
+changed: [localhost] => (item=deploy with 14 tenants| costs:0:00:16.383065)
+changed: [localhost] => (item=append one more tenant| costs:0:00:28.063489)
+changed: [localhost] => (item=remove one tenant| costs:0:00:03.283968)
+changed: [localhost] => (item=add one separate tenant| costs:0:00:02.834069)
+changed: [localhost] => (item=delete 15 tenants| costs:0:00:26.012689)
+
+PLAY RECAP **************************************************************************************************************************************************
+localhost                  : ok=3    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+[WARNING]: No inventory was parsed, only implicit localhost is available
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+PLAY [localhost] ********************************************************************************************************************************************
+
+TASK [set_fact] *********************************************************************************************************************************************
+ok: [localhost]
+
+TASK [generate resource json] *******************************************************************************************************************************
+changed: [localhost] => (item=1)
+changed: [localhost] => (item=1+1)
+changed: [localhost] => (item=n)
+changed: [localhost] => (item=n+1)
+changed: [localhost] => (item=n_1)
+changed: [localhost] => (item=n-1)
+
+TASK [deploy as3 to bigip and record the delta time] ********************************************************************************************************
+changed: [localhost] => (item=deploy with 15 apps in one tenant| costs:0:00:08.867109)
+changed: [localhost] => (item=append one more app to the tenant| costs:0:00:07.641381)
+changed: [localhost] => (item=remove one app from the tenant| costs:0:00:06.544675)
+changed: [localhost] => (item=delete the tenant with 15 apps| costs:0:00:06.498547)
+changed: [localhost] => (item=deploy with 15 tenants| costs:0:00:16.777805)
+changed: [localhost] => (item=append one more tenant| costs:0:00:30.162730)
+changed: [localhost] => (item=remove one tenant| costs:0:00:03.331163)
+changed: [localhost] => (item=add one separate tenant| costs:0:00:02.766732)
+changed: [localhost] => (item=delete 16 tenants| costs:0:00:29.863144)
+
+PLAY RECAP **************************************************************************************************************************************************
+localhost                  : ok=3    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+[WARNING]: No inventory was parsed, only implicit localhost is available
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+PLAY [localhost] ********************************************************************************************************************************************
+
+TASK [set_fact] *********************************************************************************************************************************************
+ok: [localhost]
+
+TASK [generate resource json] *******************************************************************************************************************************
+changed: [localhost] => (item=1)
+changed: [localhost] => (item=1+1)
+changed: [localhost] => (item=n)
+changed: [localhost] => (item=n+1)
+changed: [localhost] => (item=n_1)
+changed: [localhost] => (item=n-1)
+
+TASK [deploy as3 to bigip and record the delta time] ********************************************************************************************************
+changed: [localhost] => (item=deploy with 16 apps in one tenant| costs:0:00:08.121692)
+changed: [localhost] => (item=append one more app to the tenant| costs:0:00:08.108094)
+changed: [localhost] => (item=remove one app from the tenant| costs:0:00:07.518701)
+changed: [localhost] => (item=delete the tenant with 16 apps| costs:0:00:06.611287)
+changed: [localhost] => (item=deploy with 16 tenants| costs:0:00:19.274981)
+changed: [localhost] => (item=append one more tenant| costs:0:00:31.582161)
+changed: [localhost] => (item=remove one tenant| costs:0:00:03.411457)
+changed: [localhost] => (item=add one separate tenant| costs:0:00:02.912259)
+changed: [localhost] => (item=delete 17 tenants| costs:0:00:30.053109)
+
+PLAY RECAP **************************************************************************************************************************************************
+localhost                  : ok=3    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+[WARNING]: No inventory was parsed, only implicit localhost is available
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+PLAY [localhost] ********************************************************************************************************************************************
+
+TASK [set_fact] *********************************************************************************************************************************************
+ok: [localhost]
+
+TASK [generate resource json] *******************************************************************************************************************************
+changed: [localhost] => (item=1)
+changed: [localhost] => (item=1+1)
+changed: [localhost] => (item=n)
+changed: [localhost] => (item=n+1)
+changed: [localhost] => (item=n_1)
+changed: [localhost] => (item=n-1)
+
+TASK [deploy as3 to bigip and record the delta time] ********************************************************************************************************
+changed: [localhost] => (item=deploy with 17 apps in one tenant| costs:0:00:08.136174)
+changed: [localhost] => (item=append one more app to the tenant| costs:0:00:08.174782)
+changed: [localhost] => (item=remove one app from the tenant| costs:0:00:08.042695)
+changed: [localhost] => (item=delete the tenant with 17 apps| costs:0:00:05.685567)
+changed: [localhost] => (item=deploy with 17 tenants| costs:0:00:18.895572)
+changed: [localhost] => (item=append one more tenant| costs:0:00:32.827554)
+changed: [localhost] => (item=remove one tenant| costs:0:00:03.515843)
+changed: [localhost] => (item=add one separate tenant| costs:0:00:02.678871)
+changed: [localhost] => (item=delete 18 tenants| costs:0:00:29.267448)
+
+PLAY RECAP **************************************************************************************************************************************************
+localhost                  : ok=3    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+[WARNING]: No inventory was parsed, only implicit localhost is available
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+PLAY [localhost] ********************************************************************************************************************************************
+
+TASK [set_fact] *********************************************************************************************************************************************
+ok: [localhost]
+
+TASK [generate resource json] *******************************************************************************************************************************
+changed: [localhost] => (item=1)
+changed: [localhost] => (item=1+1)
+changed: [localhost] => (item=n)
+changed: [localhost] => (item=n+1)
+changed: [localhost] => (item=n_1)
+changed: [localhost] => (item=n-1)
+
+TASK [deploy as3 to bigip and record the delta time] ********************************************************************************************************
+changed: [localhost] => (item=deploy with 18 apps in one tenant| costs:0:00:08.999958)
+changed: [localhost] => (item=append one more app to the tenant| costs:0:00:08.430887)
+changed: [localhost] => (item=remove one app from the tenant| costs:0:00:08.332183)
+changed: [localhost] => (item=delete the tenant with 18 apps| costs:0:00:06.659391)
+changed: [localhost] => (item=deploy with 18 tenants| costs:0:00:20.210448)
+changed: [localhost] => (item=append one more tenant| costs:0:00:36.149049)
+changed: [localhost] => (item=remove one tenant| costs:0:00:03.377359)
+changed: [localhost] => (item=add one separate tenant| costs:0:00:03.133324)
+changed: [localhost] => (item=delete 19 tenants| costs:0:00:33.499201)
+
+PLAY RECAP **************************************************************************************************************************************************
+localhost                  : ok=3    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+[WARNING]: No inventory was parsed, only implicit localhost is available
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+PLAY [localhost] ********************************************************************************************************************************************
+
+TASK [set_fact] *********************************************************************************************************************************************
+ok: [localhost]
+
+TASK [generate resource json] *******************************************************************************************************************************
+changed: [localhost] => (item=1)
+changed: [localhost] => (item=1+1)
+changed: [localhost] => (item=n)
+changed: [localhost] => (item=n+1)
+changed: [localhost] => (item=n_1)
+changed: [localhost] => (item=n-1)
+
+TASK [deploy as3 to bigip and record the delta time] ********************************************************************************************************
+changed: [localhost] => (item=deploy with 19 apps in one tenant| costs:0:00:08.807163)
+changed: [localhost] => (item=append one more app to the tenant| costs:0:00:08.851282)
+changed: [localhost] => (item=remove one app from the tenant| costs:0:00:09.365135)
+changed: [localhost] => (item=delete the tenant with 19 apps| costs:0:00:06.190867)
+changed: [localhost] => (item=deploy with 19 tenants| costs:0:00:20.996251)
+changed: [localhost] => (item=append one more tenant| costs:0:00:35.362987)
+changed: [localhost] => (item=remove one tenant| costs:0:00:03.202303)
+changed: [localhost] => (item=add one separate tenant| costs:0:00:02.789404)
+changed: [localhost] => (item=delete 20 tenants| costs:0:00:32.830760)
+
+PLAY RECAP **************************************************************************************************************************************************
+localhost                  : ok=3    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+[WARNING]: No inventory was parsed, only implicit localhost is available
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+PLAY [localhost] ********************************************************************************************************************************************
+
+TASK [set_fact] *********************************************************************************************************************************************
+ok: [localhost]
+
+TASK [generate resource json] *******************************************************************************************************************************
+changed: [localhost] => (item=1)
+changed: [localhost] => (item=1+1)
+changed: [localhost] => (item=n)
+changed: [localhost] => (item=n+1)
+changed: [localhost] => (item=n_1)
+changed: [localhost] => (item=n-1)
+
+TASK [deploy as3 to bigip and record the delta time] ********************************************************************************************************
+changed: [localhost] => (item=deploy with 20 apps in one tenant| costs:0:00:08.879592)
+changed: [localhost] => (item=append one more app to the tenant| costs:0:00:08.501058)
+changed: [localhost] => (item=remove one app from the tenant| costs:0:00:08.845404)
+changed: [localhost] => (item=delete the tenant with 20 apps| costs:0:00:07.145019)
+changed: [localhost] => (item=deploy with 20 tenants| costs:0:00:22.228987)
+changed: [localhost] => (item=append one more tenant| costs:0:00:37.527243)
+changed: [localhost] => (item=remove one tenant| costs:0:00:03.494267)
+changed: [localhost] => (item=add one separate tenant| costs:0:00:02.711219)
+changed: [localhost] => (item=delete 21 tenants| costs:0:00:34.930403)
+
+PLAY RECAP **************************************************************************************************************************************************
+localhost                  : ok=3    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+
+PLAY RECAP ******************************************************************************************************************************************************************************************
+localhost                  : ok=3    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+[WARNING]: No inventory was parsed, only implicit localhost is available
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+PLAY [localhost] ************************************************************************************************************************************************************************************
+
+TASK [set_fact] *************************************************************************************************************************************************************************************
+ok: [localhost]
+
+TASK [generate resource json] ***********************************************************************************************************************************************************************
+changed: [localhost] => (item=1)
+changed: [localhost] => (item=1+1)
+changed: [localhost] => (item=n)
+changed: [localhost] => (item=n+1)
+changed: [localhost] => (item=n_1)
+changed: [localhost] => (item=n-1)
+
+TASK [deploy as3 to bigip and record the delta time] ************************************************************************************************************************************************
+changed: [localhost] => (item=deploy with 21 apps in one tenant| costs:0:00:09.442064)
+changed: [localhost] => (item=append one more app to the tenant| costs:0:00:09.395447)
+changed: [localhost] => (item=remove one app from the tenant| costs:0:00:09.786317)
+changed: [localhost] => (item=delete the tenant with 21 apps| costs:0:00:07.003302)
+changed: [localhost] => (item=deploy with 21 tenants| costs:0:00:23.834689)
+changed: [localhost] => (item=append one more tenant| costs:0:00:38.820568)
+changed: [localhost] => (item=remove one tenant| costs:0:00:03.471221)
+changed: [localhost] => (item=add one separate tenant| costs:0:00:03.175834)
+changed: [localhost] => (item=delete 22 tenants| costs:0:00:41.517662)
+
+PLAY RECAP ******************************************************************************************************************************************************************************************
+localhost                  : ok=3    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+[WARNING]: No inventory was parsed, only implicit localhost is available
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+PLAY [localhost] ************************************************************************************************************************************************************************************
+
+TASK [set_fact] *************************************************************************************************************************************************************************************
+ok: [localhost]
+
+TASK [generate resource json] ***********************************************************************************************************************************************************************
+changed: [localhost] => (item=1)
+changed: [localhost] => (item=1+1)
+changed: [localhost] => (item=n)
+changed: [localhost] => (item=n+1)
+changed: [localhost] => (item=n_1)
+changed: [localhost] => (item=n-1)
+
+TASK [deploy as3 to bigip and record the delta time] ************************************************************************************************************************************************
+changed: [localhost] => (item=deploy with 22 apps in one tenant| costs:0:00:11.174462)
+changed: [localhost] => (item=append one more app to the tenant| costs:0:00:09.337320)
+changed: [localhost] => (item=remove one app from the tenant| costs:0:00:09.661871)
+changed: [localhost] => (item=delete the tenant with 22 apps| costs:0:00:06.354126)
+changed: [localhost] => (item=deploy with 22 tenants| costs:0:00:24.668196)
+changed: [localhost] => (item=append one more tenant| costs:0:00:41.574169)
+changed: [localhost] => (item=remove one tenant| costs:0:00:03.587870)
+changed: [localhost] => (item=add one separate tenant| costs:0:00:02.795706)
+changed: [localhost] => (item=delete 23 tenants| costs:0:00:41.675744)
+
+PLAY RECAP ******************************************************************************************************************************************************************************************
+localhost                  : ok=3    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+[WARNING]: No inventory was parsed, only implicit localhost is available
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+PLAY [localhost] ************************************************************************************************************************************************************************************
+
+TASK [set_fact] *************************************************************************************************************************************************************************************
+ok: [localhost]
+
+TASK [generate resource json] ***********************************************************************************************************************************************************************
+changed: [localhost] => (item=1)
+changed: [localhost] => (item=1+1)
+changed: [localhost] => (item=n)
+changed: [localhost] => (item=n+1)
+changed: [localhost] => (item=n_1)
+changed: [localhost] => (item=n-1)
+
+TASK [deploy as3 to bigip and record the delta time] ************************************************************************************************************************************************
+changed: [localhost] => (item=deploy with 23 apps in one tenant| costs:0:00:12.545671)
+changed: [localhost] => (item=append one more app to the tenant| costs:0:00:11.028891)
+changed: [localhost] => (item=remove one app from the tenant| costs:0:00:10.382334)
+changed: [localhost] => (item=delete the tenant with 23 apps| costs:0:00:07.160152)
+changed: [localhost] => (item=deploy with 23 tenants| costs:0:00:26.094120)
+changed: [localhost] => (item=append one more tenant| costs:0:00:44.195430)
+changed: [localhost] => (item=remove one tenant| costs:0:00:03.046672)
+changed: [localhost] => (item=add one separate tenant| costs:0:00:02.959371)
+changed: [localhost] => (item=delete 24 tenants| costs:0:00:43.177139)
+
+PLAY RECAP ******************************************************************************************************************************************************************************************
+localhost                  : ok=3    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+[WARNING]: No inventory was parsed, only implicit localhost is available
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+PLAY [localhost] ************************************************************************************************************************************************************************************
+
+TASK [set_fact] *************************************************************************************************************************************************************************************
+ok: [localhost]
+
+TASK [generate resource json] ***********************************************************************************************************************************************************************
+changed: [localhost] => (item=1)
+changed: [localhost] => (item=1+1)
+changed: [localhost] => (item=n)
+changed: [localhost] => (item=n+1)
+changed: [localhost] => (item=n_1)
+changed: [localhost] => (item=n-1)
+
+TASK [deploy as3 to bigip and record the delta time] ************************************************************************************************************************************************
+changed: [localhost] => (item=deploy with 24 apps in one tenant| costs:0:00:10.610400)
+changed: [localhost] => (item=append one more app to the tenant| costs:0:00:10.484651)
+changed: [localhost] => (item=remove one app from the tenant| costs:0:00:10.201883)
+changed: [localhost] => (item=delete the tenant with 24 apps| costs:0:00:06.528467)
+changed: [localhost] => (item=deploy with 24 tenants| costs:0:00:27.196055)
+changed: [localhost] => (item=append one more tenant| costs:0:00:43.463006)
+changed: [localhost] => (item=remove one tenant| costs:0:00:03.387670)
+changed: [localhost] => (item=add one separate tenant| costs:0:00:02.885181)
+changed: [localhost] => (item=delete 25 tenants| costs:0:00:40.306205)
+
+PLAY RECAP ******************************************************************************************************************************************************************************************
+localhost                  : ok=3    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+[WARNING]: No inventory was parsed, only implicit localhost is available
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+PLAY [localhost] ************************************************************************************************************************************************************************************
+
+TASK [set_fact] *************************************************************************************************************************************************************************************
+ok: [localhost]
+
+TASK [generate resource json] ***********************************************************************************************************************************************************************
+changed: [localhost] => (item=1)
+changed: [localhost] => (item=1+1)
+changed: [localhost] => (item=n)
+changed: [localhost] => (item=n+1)
+changed: [localhost] => (item=n_1)
+changed: [localhost] => (item=n-1)
+
+TASK [deploy as3 to bigip and record the delta time] ************************************************************************************************************************************************
+changed: [localhost] => (item=deploy with 25 apps in one tenant| costs:0:00:11.112028)
+changed: [localhost] => (item=append one more app to the tenant| costs:0:00:10.278411)
+changed: [localhost] => (item=remove one app from the tenant| costs:0:00:10.097820)
+changed: [localhost] => (item=delete the tenant with 25 apps| costs:0:00:06.658810)
+changed: [localhost] => (item=deploy with 25 tenants| costs:0:00:27.933584)
+failed: [localhost] (item=append one more tenant| costs:0:00:45.964233) => {"ansible_loop_var": "item", "changed": true, "cmd": "code=`curl -k -u admin:P@ssw0rd123 -X POST  -d @tests/test-n+1.json -H \"Content-Type: application/json\"  https://10.250.2.219:443/mgmt/shared/appsvcs/declare 2>/dev/null -s -o /dev/null -w %{http_code}`\n  echo $code\nif [ $code -ne 200 ]; then exit 1; fi\n", "delta": "0:00:45.964233", "end": "2023-03-14 09:17:43.065954", "item": {"file": "tests/test-n+1.json", "msg": "append one more tenant"}, "msg": "non-zero return code", "rc": 1, "start": "2023-03-14 09:16:57.101721", "stderr": "", "stderr_lines": [], "stdout": "202", "stdout_lines": ["202"]}
+failed: [localhost] (item=remove one tenant| costs:0:00:02.222221) => {"ansible_loop_var": "item", "changed": true, "cmd": "code=`curl -k -u admin:P@ssw0rd123 -X POST  -d @tests/test-n-1.json -H \"Content-Type: application/json\"  https://10.250.2.219:443/mgmt/shared/appsvcs/declare 2>/dev/null -s -o /dev/null -w %{http_code}`\n  echo $code\nif [ $code -ne 200 ]; then exit 1; fi\n", "delta": "0:00:02.222221", "end": "2023-03-14 09:17:45.626425", "item": {"file": "tests/test-n-1.json", "msg": "remove one tenant"}, "msg": "non-zero return code", "rc": 1, "start": "2023-03-14 09:17:43.404204", "stderr": "", "stderr_lines": [], "stdout": "503", "stdout_lines": ["503"]}
+changed: [localhost] => (item=add one separate tenant| costs:0:00:04.127252)
+changed: [localhost] => (item=delete 26 tenants| costs:0:00:43.004584)
+
+PLAY RECAP ******************************************************************************************************************************************************************************************
+localhost                  : ok=2    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0 
