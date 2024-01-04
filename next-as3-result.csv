@@ -1,0 +1,1 @@
+deploy with $n apps in one tenant,	append one more app to the tenant,	remove one app from the tenant,	delete the tenant with $n apps, deploy with $n tenants,	append one more tenant,	remove one tenant,	add one separate tenant	delete $n tenants, delete $n tenants

@@ -1,6 +1,6 @@
 {
     "class": "AS3",
-    "persist": false,
+    "persist": true,
     "declaration": {
         "class": "ADC",
         "schemaVersion": "3.18.0",
@@ -82,16 +82,18 @@
                         }
                     ],
                     "loadBalancingMode": "least-connections-member",
-                    "minimumMembersActive": 0,
                     "members": [
                         {
                             "servicePort": 80,
-                            "serverAddresses": []
+                            "serverAddresses": [
+                            "1.{{ 100 + num }}.3.4",
+                            "{{ 100 + num }}.2.3.4"
+                          ]
                         }
                     ]
                 }
             }
-        }{{ ',' if not loop.last }}
+        }{{ ',' if not loop.last else '' }}
 
 {% endfor %}
 

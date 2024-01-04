@@ -65,23 +65,48 @@
     #     - {"file": "", "msg": "delete the tenant with {{ count }} apps"}
 
 #######################
+    - name: get as3 bearer token
+      shell: |
+        curl -k 'https://10.145.72.148:5443/api/v1/login' -H 'Authorization: Basic YWRtaW46UEBzc3cwcmQxMjM='
+      register: login_resp
+
+    - name: get token
+      set_fact:
+        bearer_token: "{{ (login_resp.stdout | from_json).token }}"
+
     - name: deploy as3 to bigip and record the delta time
       shell: |
-        code=`curl -k -u admin:P@ssw0rd123 -X POST \
+        code=`curl -k -X {{ item.method }} \
           -d @{{ item.file }} -H "Content-Type: application/json" \
-          https://10.250.2.219:443/mgmt/shared/appsvcs/declare 2>/dev/null -s -o /dev/null -w %{http_code}`
+          -H "Authorization: Bearer {{ bearer_token }}" \
+          https://10.145.72.148:5443/api/v1/application-services 2>/dev/null -s -o /dev/null -w %{http_code}`
           echo $code
         if [ $code -ne 200 ]; then exit 1; fi
       register: result
       loop_control:
           label: "{{ item.msg }}| costs:{{ result.delta | default('0:00:00.000') }}"
       with_items:
-        - {"file": "tests/test-1.json", "msg": "deploy with {{ count }} apps in one tenant"}
-        - {"file": "tests/test-1+1.json", "msg": "append one more app to the tenant"}
-        - {"file": "tests/test-1.json", "msg": "remove one app from the tenant"}
-        - {"file": "empty.json", "msg": "delete the tenant with {{ count }} apps"}
-        - {"file": "tests/test-n.json", "msg": "deploy with {{ count }} tenants"}
-        - {"file": "tests/test-n+1.json", "msg": "append one more tenant"}
-        - {"file": "tests/test-n-1.json", "msg": "remove one tenant"}
-        - {"file": "tests/test-n_1.json", "msg": "add one separate tenant"}
-        - {"file": "empty.json", "msg": "delete {{ count|int + 1 }} tenants"}
+        - {"file": "tests/test-1.json", "method": "POST", "msg": "deploy with {{ count }} apps in one tenant"}
+        - {"file": "tests/test-1+1.json", "method": "POST", "msg": "append one more app to the tenant"}
+        - {"file": "tests/test-1.json", "method": "POST",  "msg": "remove one app from the tenant"}
+        - {"file": "empty.json", "method": "DELETE",  "msg": "delete the tenant with {{ count }} apps"}
+        - {"file": "tests/test-n.json", "method": "POST",  "msg": "deploy with {{ count }} tenants"}
+        - {"file": "tests/test-n+1.json", "method": "POST",  "msg": "append one more tenant"}
+        - {"file": "tests/test-n-1.json", "method": "POST",  "msg": "remove one tenant"}
+        - {"file": "tests/test-n_1.json", "method": "POST",  "msg": "add one separate tenant"}
+        - {"file": "empty.json", "method": "DELETE",  "msg": "delete {{ count|int + 1 }} tenants"}
+
+    - name: extract delta value
+      set_fact:
+        csv_string: "{{ result.results | map(attribute='delta') | map('regex_replace', '0:00:', '') | map('regex_replace', '(\\.[0-9]{2}).*', '\\1') | list | join(',') }}"
+
+    - name: debug csv_string
+      debug:
+        var: csv_string
+
+    - name: append new line to csv
+      lineinfile:
+        path: ./next-as3-result.csv
+        line: "{{ csv_string }}"
+        create: yes
+        state: present
