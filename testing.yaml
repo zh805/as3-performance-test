@@ -98,7 +98,7 @@
 
     - name: extract delta value
       set_fact:
-        csv_string: "{{ result.results | map(attribute='delta') | map('regex_replace', '0:00:', '') | map('regex_replace', '(\\.[0-9]{2}).*', '\\1') | list | join(',') }}"
+        csv_string: "{{ result.results | map(attribute='delta') | list | join(',') }}"
 
     - name: debug csv_string
       debug:
